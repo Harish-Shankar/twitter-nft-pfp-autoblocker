@@ -1,0 +1,31 @@
+{
+  "name": "twitter-nft-pfp-autoblocker",
+  "manifest-version": 3,
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.ts"
+  },
+  "options_page": "popup/index.html",
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "js": ["index.ts"],
+      "matches": ["*://*.twitter.com/*"]
+    }
+  ],
+  "icons": {
+    "128": "assets/icon128.png",
+    "48": "assets/icon48.png",
+    "16": "assets/icon16.png"
+  },
+  "permissions": ["storage", "alarms", "cookies"],
+  "host_permissions": ["*://*.twitter.com/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["closeInfo.ts", "autoBlock.ts"],
+      "matches": ["*://*.twitter.com/*"]
+    }
+  ]
+}
